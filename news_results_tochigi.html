@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ニュース収集結果 - 2026/01/21 04:07</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Yu Gothic', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .update-time {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+        
+        .summary {
+            background: #f8f9fa;
+            padding: 30px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .summary-item {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .summary-number {
+            font-size: 36px;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        
+        .summary-label {
+            color: #6c757d;
+            font-size: 14px;
+        }
+        
+        .keywords {
+            margin-top: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .keyword-tag {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin: 5px;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .site-section {
+            margin-bottom: 40px;
+        }
+        
+        .site-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .site-count {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .article-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+        }
+        
+        .article-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+            transform: translateX(5px);
+        }
+        
+        .article-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        
+        .article-title a {
+            color: #212529;
+            text-decoration: none;
+        }
+        
+        .article-title a:hover {
+            color: #667eea;
+        }
+        
+        .article-description {
+            color: #6c757d;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .article-date {
+            color: #adb5bd;
+            font-size: 12px;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #6c757d;
+        }
+        
+        footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #6c757d;
+            font-size: 12px;
+            border-top: 1px solid #dee2e6;
+        }
+        
+        .refresh-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .refresh-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📰 ニュース収集結果</h1>
+            <div class="update-time">🕐 最終更新: 2026年01月21日 04時07分</div>
+        </header>
+        
+        <div class="summary">
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <div class="summary-number">95</div>
+                    <div class="summary-label">収集記事数</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-number">12</div>
+                    <div class="summary-label">対象サイト数</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-number">30</div>
+                    <div class="summary-label">監視キーワード数</div>
+                </div>
+            </div>
+            
+            <div class="keywords">
+                <strong>🔍 監視キーワード:</strong>
+                <span class="keyword-tag">企業</span><span class="keyword-tag">経営</span><span class="keyword-tag">ビジネス</span><span class="keyword-tag">技術</span><span class="keyword-tag">イノベーション</span><span class="keyword-tag">戦略</span><span class="keyword-tag">市場</span><span class="keyword-tag">製造業</span><span class="keyword-tag">工場</span><span class="keyword-tag">生産</span><span class="keyword-tag">ものづくり</span><span class="keyword-tag">品質管理</span><span class="keyword-tag">生産性</span><span class="keyword-tag">カイゼン</span><span class="keyword-tag">ISO</span><span class="keyword-tag">マネジメント</span><span class="keyword-tag">リーダーシップ</span><span class="keyword-tag">組織</span><span class="keyword-tag">人材育成</span><span class="keyword-tag">チーム</span><span class="keyword-tag">管理職</span><span class="keyword-tag">働き方</span><span class="keyword-tag">働き方改革</span><span class="keyword-tag">ワークライフバランス</span><span class="keyword-tag">DX</span><span class="keyword-tag">デジタル</span><span class="keyword-tag">AI</span><span class="keyword-tag">地域</span><span class="keyword-tag">コミュニティ</span><span class="keyword-tag">社会貢献</span>
+            </div>
+        </div>
+        
+        <div class="content">
+
+            <div class="site-section">
+                <div class="site-header">
+                    <span>ITmedia News</span>
+                    <span class="site-count">3件</span>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://www.itmedia.co.jp/news/articles/2601/20/news116.html" target="_blank" rel="noopener">ソニー、中国TCLと合弁会社　ホームAV事業を継承　「ブラビア」ブランドなどの製品を販売へ</a>
+                    </div>
+                    <div class="article-description">ソニーは20日、20日、中国TCLとテレビやホームオーディオを手掛ける合弁会社を設立する戦略的提携に向けて検討を進めると発表した。</div>
+                    <div class="article-date">📅 Tue, 20 Jan 2026 18:49:00 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://www.itmedia.co.jp/news/articles/2601/20/news066.html" target="_blank" rel="noopener">生成AIで50万点以上作成か　女性芸能人模したわいせつ画像公開疑い、31歳男逮捕</a>
+                    </div>
+                    <div class="article-description">生成AIで女性芸能人を模したわいせつ画像を作成し、インターネット上で公開したとして、警視庁は1月19日、わいせつ電磁的記録陳列の疑いで、札幌市の無職、千葉達郎容疑者（31）を逮捕した。捜査関係者への取材で分かった。</div>
+                    <div class="article-date">📅 Tue, 20 Jan 2026 10:11:00 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://www.itmedia.co.jp/news/articles/2601/20/news036.html" target="_blank" rel="noopener">サルはなぜ「同性間の性行為」をするのか？　ニホンザルやチンパンジーなどを調査　英国チームが発表</a>
+                    </div>
+                    <div class="article-description">英インペリアル・カレッジ・ロンドン（ICL）に所属する研究者らは、霊長類における同性間性行動の進化的・生態的要因を解明した研究報告を発表した。</div>
+                    <div class="article-date">📅 Tue, 20 Jan 2026 08:00:00 +0900</div>
+                </div>
+
+            </div>
+
+            <div class="site-section">
+                <div class="site-header">
+                    <span>NHKニュース</span>
+                    <span class="site-count">2件</span>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://news.web.nhk/newsweb/na/na-k10015031511000" target="_blank" rel="noopener">NYダウ 一時750ドル超の値下がり 売り注文広がる</a>
+                    </div>
+                    <div class="article-description">20日のニューヨーク株式市場では、取り引き開始直後から売り注文が広がり、ダウ平均株価は先週末と比べて一時、750ドルを超える値下がりとなっています。</div>
+                    <div class="article-date">📅 Wed, 21 Jan 2026 00:15:03 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://news.web.nhk/newsweb/na/na-k10015031461000" target="_blank" rel="noopener">気象庁 関係機関への情報提供強化盛り込んだ報告書 取りまとめ</a>
+                    </div>
+                    <div class="article-description">全国各地にある気象台の業務改善について話し合っていた気象庁の検討会は、自治体やライフラインを担う企業など、関係機関への情報提供の強化などを盛り込んだ報告書を取りまとめました。</div>
+                    <div class="article-date">📅 Wed, 21 Jan 2026 00:27:06 +0900</div>
+                </div>
+
+            </div>
+
+            <div class="site-section">
+                <div class="site-header">
+                    <span>けんすう</span>
+                    <span class="site-count">3件</span>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://kensuu.com/n/nef6124693161" target="_blank" rel="noopener">生成AIでSNSの出番が少なくなるかも</a>
+                    </div>
+                    <div class="article-description">こんにちは！今日は、「SNSって、もしかして終わりに近づいているんじゃないか」という話を書きたいと思います。続きをみる</div>
+                    <div class="article-date">📅 Thu, 15 Jan 2026 20:56:29 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://kensuu.com/n/n85d6107fc919" target="_blank" rel="noopener">生成AIの著作権問題と、生成AIとIPビジネスをやるときに考えたこと【ビックリマン】</a>
+                    </div>
+                    <div class="article-description">こんにちは！先日、ロッテさんのビックリマンと一緒に、「ビックリマンのキャラクターと一緒に、自分の顔と共に名刺を作れるサービス」というものを作りました。続きをみる</div>
+                    <div class="article-date">📅 Tue, 06 Jan 2026 22:29:59 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://kensuu.com/n/nba267ab4622b" target="_blank" rel="noopener">スクショを1分ごとに撮る日報ツールを作ったらよかった話</a>
+                    </div>
+                    <div class="article-description">こんにちは！AIによって素人みたいな僕でもプログラミングをして、好きなツールを作れるようになってて、すごく良い時代だなあ、と思っているんですが、続きをみる</div>
+                    <div class="article-date">📅 Tue, 23 Dec 2025 23:54:04 +0900</div>
+                </div>
+
+            </div>
+
+            <div class="site-section">
+                <div class="site-header">
+                    <span>イケハヤ</span>
+                    <span class="site-count">11件</span>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/ihayato/n/n7477955470d4" target="_blank" rel="noopener">ついに到来!?「日本発ミームコイン」の波に乗るべきか？</a>
+                    </div>
+                    <div class="article-description">イケハヤです。今日はAIではなく仮想通貨のお話です。続きをみる</div>
+                    <div class="article-date">📅 Mon, 19 Jan 2026 08:36:00 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/ihayato/n/n4a5196cc37dc" target="_blank" rel="noopener">AIと創作する際の落とし穴の話。</a>
+                    </div>
+                    <div class="article-description">イケハヤです。芸術や文化、歴史、あるいは音楽など、いわゆる「教養」と言われる知識を吸収してきたのは、とてもよかったなと思ってる話をします。続きをみる</div>
+                    <div class="article-date">📅 Mon, 19 Jan 2026 07:57:24 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/ihayato/n/nf1ff16dc74c3" target="_blank" rel="noopener">【フルリモート、時給2000円】「AIアニメーター」を募集します。</a>
+                    </div>
+                    <div class="article-description"> イケハヤです。さて、今日はひとつお知らせがあります。続きをみる</div>
+                    <div class="article-date">📅 Sun, 18 Jan 2026 08:16:10 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/ihayato/n/n9b5eccae4fd8" target="_blank" rel="noopener">【解説】AI時代の最強メモ術：Antigravity × Obsidianが最強すぎる件。</a>
+                    </div>
+                    <div class="article-description">イケハヤです。今日もコツコツやってますか？続きをみる</div>
+                    <div class="article-date">📅 Sat, 17 Jan 2026 08:33:44 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/ihayato/n/n546171dfb53c" target="_blank" rel="noopener">今稼げるAIコンテンツネタを共有（ただちょっと遅い）</a>
+                    </div>
+                    <div class="article-description">イケハヤです。今日は、「今稼げるAIコンテンツのネタ」を共有します。続きをみる</div>
+                    <div class="article-date">📅 Fri, 16 Jan 2026 08:42:17 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/ihayato/n/n4231ad54cb0e" target="_blank" rel="noopener">【悲報】「AIアニメ」に価値はない、という残酷な話。</a>
+                    </div>
+                    <div class="article-description">イケハヤです。今日はあえて「AIアニメ」について、少し辛口な話をしようと思います。続きをみる</div>
+                    <div class="article-date">📅 Fri, 16 Jan 2026 08:40:16 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/ihayato/n/n91ad04e52a6b" target="_blank" rel="noopener">AIアニメの罠：IP創出から逃げてはいけない</a>
+                    </div>
+                    <div class="article-description">イケハヤです。 今、AIを使えばちょっとしたアニメーションを作るのは、驚くほど簡単になりました。 続きをみる</div>
+                    <div class="article-date">📅 Thu, 15 Jan 2026 08:22:45 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/ihayato/n/n47f25d6f714f" target="_blank" rel="noopener">今必要なのは「脚本力」という話。</a>
+                    </div>
+                    <div class="article-description">イケハヤです。ぼくは今、AIを活用したアニメ制作にどっぷり浸かっています。続きをみる</div>
+                    <div class="article-date">📅 Mon, 12 Jan 2026 09:18:57 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/ihayato/n/n073bb9c3a94d" target="_blank" rel="noopener">あなたの「AI活用レベル」はいくつ？3段階で整理する。</a>
+                    </div>
+                    <div class="article-description">イケハヤです。3連休の最終日ですね！いかがお過ごしでしょうか。続きをみる</div>
+                    <div class="article-date">📅 Mon, 12 Jan 2026 09:15:12 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/ihayato/n/nfc6d25b5d2bc" target="_blank" rel="noopener">新作AIアニメ公開！自分たちのポジションを言語化。</a>
+                    </div>
+                    <div class="article-description">イケハヤです。 続きをみる</div>
+                    <div class="article-date">📅 Sun, 11 Jan 2026 08:47:05 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/ihayato/n/n6485af87c2c8" target="_blank" rel="noopener">【革命】AIで「アニメ制作の民主化」が起こる話。</a>
+                    </div>
+                    <div class="article-description">イケハヤです。昨日、新作となるAIアニメをYouTubeにアップしました！続きをみる</div>
+                    <div class="article-date">📅 Sun, 11 Jan 2026 08:44:10 +0900</div>
+                </div>
+
+            </div>
+
+            <div class="site-section">
+                <div class="site-header">
+                    <span>ダイヤモンドオンライン</span>
+                    <span class="site-count">7件</span>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://diamond.jp/articles/-/381938" target="_blank" rel="noopener">ヤマトの宅配現場に潜入！アマゾンで注文する客の「無茶ぶり」〈注目記事〉 - 潜入ルポamazon帝国</a>
+                    </div>
+                    <div class="article-description">2026年1月20日は宅急便の発売50周年。ヤマト運輸といえば2017年に「宅配クライシス」が起き、多額の未払いサービス残業代が発覚した。これ以降、大手顧客のアマゾンは配送戦略を変更。私はヤマトのドライバーの助手席に乗り、潜入取材を敢行した。</div>
+                    <div class="article-date">📅 Tue, 20 Jan 2026 12:00:00 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://diamond.jp/articles/-/381816" target="_blank" rel="noopener">「現金を持っている企業」にチャンス到来!?NISAで2026年に狙うべき“変貌株”の見つけ方 - ホットニュース from ZAi</a>
+                    </div>
+                    <div class="article-description">長期投資が可能で、運用益が非課税になるNISA（少額投資非課税制度）。投資信託を買っている人が多いかもしれないが、このところ株価に勢いのある日本株が気になっている人もいるだろう。はたして、NISAの投資先として日本株はふさわしいのだろうか。また、NISAで日本株を買って儲けるためには、どんなことに注意すればいいのか。投資戦略に定評がある4人のプロに話を聞いた！</div>
+                    <div class="article-date">📅 Tue, 20 Jan 2026 12:00:00 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://diamond.jp/articles/-/381658" target="_blank" rel="noopener">SUBARUが「ブランド新戦略」を策定するに至った“危機感”とは？常識が通用しないほどに事業環境が激変 - エコカー大戦争！</a>
+                    </div>
+                    <div class="article-description">SUBARUが今、大きく変わろうとしている。そのことを昨秋開催のジャパンモビリティショー2025に続き、年明け早々の東京オートサロン2026でも実感した。水平対向エンジン、アイサイトなどの独自技術を継承しつつグローバルでブランド再構築を進めるSUBARUの実態に迫る。</div>
+                    <div class="article-date">📅 Tue, 20 Jan 2026 11:30:00 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://diamond.jp/articles/-/381813" target="_blank" rel="noopener">「うちの部署で活躍できなきゃどこでも無理」ってどういうこと？【勅使川原真衣×坂井風太（2）】 - 組織の違和感 結局、リーダーは何を変えればいいのか？</a>
+                    </div>
+                    <div class="article-description">新刊『組織の違和感 結局、リーダーは何を変えればいいのか？』の発売を記念して、著者の勅使川原真衣さんと、坂井風太さんとの特別対談を実施。坂井さんは勅使川原さんの著書を「すべて読んでいた」そうで、初対面のお二人とは思えぬ熱い話が繰り広げられました。</div>
+                    <div class="article-date">📅 Tue, 20 Jan 2026 07:10:00 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://diamond.jp/articles/-/381866" target="_blank" rel="noopener">仕事ができない人は「検討する」と言う。仕事がデキる人は、代わりに何と言う？ - 「今日も仕事が終わらなかった」はなぜ起きるのか？　仕事が3倍速くなる計画・実行・中断の技術</a>
+                    </div>
+                    <div class="article-description">「今日も、仕事が、終わらなかった…!!」毎日「また終わらなかった…」を繰り返して、うんざりしたり、落ち込んだりしていないだろうか。「量が多すぎて残業ばかり」「要領が悪い」「やりたいことができない」など、根深い悩みがある人も多いだろう。「原因は単に3つの“隠れたムダ”に気づいていないだけ」こう語るのは、タスク管理オタクで、ダンドリ磨いて30年超のエキスパート・萩原雅裕さん。今回は書籍『「今日も仕事が終わらなかった」はなぜ起きるのか？ 仕事が3倍速くなる計画・実行・中断の技術』の中から、今回は「仕事が終わらない元凶」を紹介する。</div>
+                    <div class="article-date">📅 Tue, 20 Jan 2026 07:05:00 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://diamond.jp/articles/-/381853" target="_blank" rel="noopener">Fラン大卒からの大企業に転職で人生逆転。学歴がなくとも人生を豊かにすることはできるのか - 17歳のときに知りたかった受験のこと、人生のこと。</a>
+                    </div>
+                    <div class="article-description">「大学受験」は10代における最大のイベントです。残念な側面でもありますが、いい大学にいけば、なりたい職業になれる確率は上がり、将来の選択肢は増えるのが現在の日本です。それほどまでに大学受験の持つインパクトは大きくなっています。そんな難しい時代でも「自分らしい大学進学」をするために書籍：『17歳のときに知りたかった受験のこと、人生のこと。』が発売中です。本書は、きれいごとを抜きにして、「大学受験とはどういうものなのか」「人生とはどういうものなのか」を考えることができる受験の決定版です。本記事では発刊を記念して著者である、びーやま氏への特別インタビューをお届けします。</div>
+                    <div class="article-date">📅 Tue, 20 Jan 2026 07:00:00 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://diamond.jp/articles/-/381820" target="_blank" rel="noopener">東京都「男性が生理痛を体験する」研修に賛否両論「わかった気になる」「浅い理解」の危うさとは - 井の中の宴 武藤弘樹</a>
+                    </div>
+                    <div class="article-description">男性管理職に生理痛を疑似体験させる研修をめぐり、SNSで賛否が噴出した。「痛みを知ることは理解への第一歩」と評価する声がある一方で、「道義的にどうなのか」などの反発も見られる。生理痛体験会は、相互理解を促進する有効な手段なのか、それとも善意ゆえの危うさをはらむのか。障害シミュレーションをめぐる議論は海外のにもあり、これらを参照しながら「体験による理解」が持つ限界と可能性を考えてみたい。</div>
+                    <div class="article-date">📅 Tue, 20 Jan 2026 07:00:00 +0900</div>
+                </div>
+
+            </div>
+
+            <div class="site-section">
+                <div class="site-header">
+                    <span>下野新聞（Yahoo経由）</span>
+                    <span class="site-count">20件</span>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://news.yahoo.co.jp/articles/1a7179f916b79548f510f6a2e1f5a0de3be1d638?source=rss" target="_blank" rel="noopener">日光山輪王寺で福升作り始まる　節分会に向け300キロの豆用意(下野新聞デジタル)</a>
+                    </div>
+                    <div class="article-description">日光市山内の世界遺産日光山輪王寺で19日、2月3日の節分会で参拝者に授与する福升作りが始まった。
+
+　節分会の準備は毎年、二十四節気の「大寒」前後に始める習わしで、行事当日までに福豆300キロを用意</div>
+                    <div class="article-date">📅 Tue, 20 Jan 2026 01:00:41 GMT</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://news.yahoo.co.jp/articles/21190384db505e6b2a4702ca56b6f9a1c22dfb6d?source=rss" target="_blank" rel="noopener">小池詩織（日光出身）が4度目の冬季オリンピックへ決意「結果で恩返し」　アイスホッケー女子代表壮行会(下野新聞デジタル)</a>
+                    </div>
+                    <div class="article-description">2月6日開幕のミラノ・コルティナ冬季五輪に出場するアイスホッケー女子日本代表「スマイルジャパン」の壮行会が19日、都内で開かれ、日光市出身のDF小池詩織（こいけしおり）主将（32）=道路建設ペリグリ</div>
+                    <div class="article-date">📅 Mon, 19 Jan 2026 22:00:43 GMT</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://news.yahoo.co.jp/articles/09181d8f7df8903f72c44f531c645d255e037377?source=rss" target="_blank" rel="noopener">窯から吹き出す炎、力強く　栃木・益子の「かさましこ登り窯プロジェクト」窯だきが終了(下野新聞デジタル)</a>
+                    </div>
+                    <div class="article-description">人間国宝の陶芸家濱田庄司（はまだしょうじ）が愛用した栃木県益子町の大登り窯を8年ぶりに復活させる日本遺産認定5周年記念事業「かさましこ登り窯プロジェクト」で、4日間の窯だきが18日、終了した。同日未</div>
+                    <div class="article-date">📅 Sun, 18 Jan 2026 20:00:42 GMT</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://news.yahoo.co.jp/articles/ce463c2c5fc99a07f858ba06228c90f328bb33a4?source=rss" target="_blank" rel="noopener">日光の冬の恵み、ことしも品質良く　蔵元「松月氷室」で天然氷の切り出し作業(下野新聞デジタル)</a>
+                    </div>
+                    <div class="article-description">日光市山久保の製氷池で18日早朝、蔵元「松月氷室」（今市）の天然氷の切り出し作業が始まった。
+
+　当初は13日を予定していたが、降雪に加え、ここ数日気温が下がらなかった影響で延期していた。氷の厚みが</div>
+                    <div class="article-date">📅 Sun, 18 Jan 2026 10:00:43 GMT</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://news.yahoo.co.jp/articles/aab6bc9618d1af414e0d1570e4823f9db322e81f?source=rss" target="_blank" rel="noopener">大学入学共通テスト始まる　栃木県内８会場、8050人が志願　一部会場でリスニング機材不具合(下野新聞デジタル)</a>
+                    </div>
+                    <div class="article-description">大学入学共通テストが17日、栃木県内7大学8会場を含む全国の650会場で始まり、本格的な受験シーズンが幕を開けた。
+
+　全国の志願者数は前年比1066人増の49万6237人で、県内は161人増の80</div>
+                    <div class="article-date">📅 Sat, 17 Jan 2026 10:42:19 GMT</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://news.yahoo.co.jp/articles/304f5e4e9521e1bda7e501eab95ab78f87bd3683?source=rss" target="_blank" rel="noopener">「フクロウ神社」に馬？　那珂川　横顔似たコケが参拝者に人気(下野新聞デジタル)</a>
+                    </div>
+                    <div class="article-description">【那珂川】「フクロウ神社」として知られる矢又の鷲子山上（とりのこさんしょう）神社で、馬の横顔をかたどったように生えるコケが見つかり、関係者を驚かせている。
+
+　同神社によると模様は12日、境内の大鳥</div>
+                    <div class="article-date">📅 Sat, 17 Jan 2026 03:00:45 GMT</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://news.yahoo.co.jp/articles/04e99704489f5be466b96a7d1a650eed67fef7f4?source=rss" target="_blank" rel="noopener">冷水耐え、増す甘み　人気の寒ざらしそば　那須で仕込み(下野新聞デジタル)</a>
+                    </div>
+                    <div class="article-description">那須町の道の駅東山道伊王野は16日、本県と福島県の境を流れる三蔵川（さんぞうがわ）の源流で、寒ざらしそばの仕込み作業を行った。
+
+　同駅は約20年前から寒ざらしそばを提供。人気が高く例年、提供初日か</div>
+                    <div class="article-date">📅 Sat, 17 Jan 2026 03:00:43 GMT</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://news.yahoo.co.jp/articles/e709fa6300761f0aaa8174a459029edfed0ce59f?source=rss" target="_blank" rel="noopener">宇都宮の地下河川「越戸川バイパス」工事現場を初公開　完了後は入れない地下空間も　都市冠水防ぐ取り組み学ぶ(下野新聞デジタル)</a>
+                    </div>
+                    <div class="article-description">河川の氾濫（はんらん）防止のため整備が進められている宇都宮市の地下河川「越戸川バイパス」で16日、市は峰4丁目の工事現場を初めて一般公開し、事業説明会「統合治水オープンハウス」を開いた。工事完了後に</div>
+                    <div class="article-date">📅 Fri, 16 Jan 2026 10:42:20 GMT</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://news.yahoo.co.jp/articles/dfe9466051330e21cbf45bed0c6bb7f0047e1574?source=rss" target="_blank" rel="noopener">「障害のトリセツ出して」転職活動で壁に直面　双極性障害の女性、壮絶経験も「ネタ」に前へ《後編》(下野新聞デジタル)</a>
+                    </div>
+                    <div class="article-description">東京都内で団体広報として働き、公私ともに充実した日々を送っていた手塚瞳（てづかひとみ）さん（32）=宇都宮市出身。信頼していた男性からのストーカー行為で、その日常は一変した。双極性障害（そううつ病）</div>
+                    <div class="article-date">📅 Fri, 16 Jan 2026 10:00:42 GMT</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://news.yahoo.co.jp/articles/287a6880370a7883d5d5c088b5df81a95c5d0fb5?source=rss" target="_blank" rel="noopener">倒産危機から「無借金経営」へ　宇都宮・小平興業、従業員による企業買収が完了(下野新聞デジタル)</a>
+                    </div>
+                    <div class="article-description">2000年代の初めに一時、経営難に陥った建設業の小平興業（宇都宮市西川田町、石黒靖規（いしぐろやすのり）社長）は15日までに、従業員による企業買収（EBO）を完了した。建設不況による受注の減少などで</div>
+                    <div class="article-date">📅 Thu, 15 Jan 2026 22:00:43 GMT</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://news.yahoo.co.jp/articles/c47982d275da3e3417aad9f1a4d00d323db2e359?source=rss" target="_blank" rel="noopener">お笑い芸人テルさんが描く「弁財天バッジ」 栃木県佐野の観光協会がガチャ販売(下野新聞デジタル)</a>
+                    </div>
+                    <div class="article-description">地域住民の有志らで組織する佐野市の磯山弁財天観光協会はこのほど、観光誘客促進を目的に、弁財天などの神様のイラストが入った「ご当地缶バッジ」を製作した。カプセル玩具自販機（ガチャガチャ）で販売している</div>
+                    <div class="article-date">📅 Wed, 14 Jan 2026 22:00:42 GMT</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://news.yahoo.co.jp/articles/de9e9a7242bdd58ab748cfe572c73d10cb1c58c1?source=rss" target="_blank" rel="noopener">栃木・足利学校で寒紅梅咲く　現在は五分咲き、２月上旬ごろ満開に(下野新聞デジタル)</a>
+                    </div>
+                    <div class="article-description">栃木県足利市昌平町の史跡足利学校で学校門東側の寒紅梅が五分咲きとなり、鮮やかなピンク色の花が参観者を楽しませている。
+
+　同学校によると、樹齢は約50年で樹高は約5メートル。咲き具合は例年並みで、2</div>
+                    <div class="article-date">📅 Tue, 13 Jan 2026 20:00:42 GMT</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://news.yahoo.co.jp/articles/23e91d6447193f5ef27fe82ff7c228e61da98fe0?source=rss" target="_blank" rel="noopener">栃木で新春恒例の大田原花市　「良い年に」縁起物求めにぎわい　150の露店にだるまや熊手並ぶ(下野新聞デジタル)</a>
+                    </div>
+                    <div class="article-description">新春恒例の大田原花市が12日、栃木県大田原市中心街の通りで開かれた。前日夜などに降った雪が残る日中から、「良い年に」と縁起物を買い求める家族連れらでにぎわった。
+
+　地元有志でつくる世話人会が主催。</div>
+                    <div class="article-date">📅 Mon, 12 Jan 2026 10:00:41 GMT</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://news.yahoo.co.jp/articles/8503a456c4e2f102ae4283c42428617987b6b727?source=rss" target="_blank" rel="noopener">J2栃木シティ、遊覧船で新チームお披露目パレード　川岸から多くのファン歓声　「去年より熱い応援を」(下野新聞デジタル)</a>
+                    </div>
+                    <div class="article-description">今季からサッカーJ2を舞台に戦う栃木シティは11日、栃木市中心部を流れる巴波（うずま）川で新チームお披露目パレードを行い、多くのファンが川岸から選手たちに歓声を送った。
+
+　クラブを応援する市民有志</div>
+                    <div class="article-date">📅 Sun, 11 Jan 2026 12:30:39 GMT</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://news.yahoo.co.jp/articles/3317890b16678087c4930a736b083e96d2782870?source=rss" target="_blank" rel="noopener">合格の春願う絵馬ずらり　栃木県芳賀・天満宮　受験生や家族ら参拝(下野新聞デジタル)</a>
+                    </div>
+                    <div class="article-description">受験シーズンが本格化する中、学問の神様菅原道真（すがわらのみちざね）を祭る栃木県芳賀町西水沼の天満宮には、合格を祈願する受験生や家族が次々と訪れている。
+
+　同神社では1、2月をピークに年間約1千体</div>
+                    <div class="article-date">📅 Sat, 10 Jan 2026 10:00:42 GMT</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://news.yahoo.co.jp/articles/b41b9a795d08c6e86e3fa21f0dc96048138979d6?source=rss" target="_blank" rel="noopener">カピバラ長風呂対決、那須どうぶつ王国の「こはる」は雪を食べに…(下野新聞デジタル)</a>
+                    </div>
+                    <div class="article-description">栃木県那須町大島の那須どうぶつ王国など国内5カ所の動物園が参加する「カピバラの長風呂対決」が10日、各園で行われた。「カピバラの露天風呂協定」を締結している同園と静岡、長崎、埼玉、石川の動物園から1</div>
+                    <div class="article-date">📅 Sat, 10 Jan 2026 09:00:45 GMT</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://news.yahoo.co.jp/articles/0c9434f2781df55a64ac1aae4b8bc92ad8a7d754?source=rss" target="_blank" rel="noopener">暴行動画拡散の栃木県立高、防犯カメラ導入を検討　保護者会で校長が謝罪(下野新聞デジタル)</a>
+                    </div>
+                    <div class="article-description">栃木県立高の校内で生徒が別の生徒を暴行している動画が交流サイト（SNS）で拡散した問題を受け、生徒が通う高校は9日夜、緊急保護者会を開き、校長が謝罪した。現状の再発防止策と並行して、今後防犯カメラの</div>
+                    <div class="article-date">📅 Fri, 09 Jan 2026 13:30:42 GMT</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://news.yahoo.co.jp/articles/14c277b0fe492f14110ead1a724d768848f1df2d?source=rss" target="_blank" rel="noopener">新聞や車から感じる暮らしの変化「栃木の昭和100年館」コジマ子どもサイエンスパークで17日まで(下野新聞デジタル)</a>
+                    </div>
+                    <div class="article-description">2月8日に迎える下野新聞紙齢5万号を記念し「タイムトラベル！　栃木の昭和100年館」（下野新聞社主催）が9日、宇都宮市西川田町の「コジマ子どもサイエンスパーク」（県子ども総合科学館）企画展示室・多目</div>
+                    <div class="article-date">📅 Fri, 09 Jan 2026 12:00:43 GMT</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://news.yahoo.co.jp/articles/60cad851751bee08460705f5d91d2f0902c183c7?source=rss" target="_blank" rel="noopener">春色、一足早く　セイヨウサクラソウ出荷佳境　宇都宮の「フラワールドひしぬま」(下野新聞デジタル)</a>
+                    </div>
+                    <div class="article-description">宇都宮市古田町の園芸農家「フラワールドひしぬま」で、セイヨウサクラソウの出荷が佳境を迎えている。ハウス内には色とりどりの花が並び、一足早い春の風情が漂っている。
+
+　出荷が大詰めを迎えているのはセイ</div>
+                    <div class="article-date">📅 Fri, 09 Jan 2026 10:00:42 GMT</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://news.yahoo.co.jp/articles/ef8d0bacec7fa54d65eacccb06229e13ab310879?source=rss" target="_blank" rel="noopener">新春を彩る栃木県産の洋ラン　FKD宇都宮店で展示始まる(下野新聞デジタル)</a>
+                    </div>
+                    <div class="article-description">新春を彩る栃木県産の洋ランが一堂に並ぶ「第54回とちぎ蘭（らん）展」が7日、宇都宮市今泉町のFKD宇都宮店3階大催事会場で始まり、白やピンク、黄など色鮮やかな花を求める人でにぎわっている。12日まで</div>
+                    <div class="article-date">📅 Wed, 07 Jan 2026 20:00:43 GMT</div>
+                </div>
+
+            </div>
+
+            <div class="site-section">
+                <div class="site-header">
+                    <span>倉貫義人</span>
+                    <span class="site-count">14件</span>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/kuranuki/n/nf3dd8641c5d2" target="_blank" rel="noopener">積読があると居心地が良くないのだけ...</a>
+                    </div>
+                    <div class="article-description">積読があると居心地が良くないのだけど、どんどん積読を消化していき、残りの本がわずかになると、それはそれで心細くなる。仕事のタスクも同感。TODOがあることは、実は幸せなことなのかも。そういえば、経営していても考えるべき問いが常にあるけれど、それってしんどいけどありがたいことだな。 続きをみる</div>
+                    <div class="article-date">📅 Wed, 13 Jan 2021 12:25:12 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/kuranuki/n/n3a4e3b335ae2" target="_blank" rel="noopener">経営していると、技術や知識で解決で...</a>
+                    </div>
+                    <div class="article-description">経営していると、技術や知識で解決できる技術問題よりも、人や組織の関係性から生じる適応課題に向き合うことが多い。いくら適応課題に取り組んでもスキルアップしない気がして心配になるけれど、人間的には磨かれているはず。それは成長というより成熟。そう思えば日々の困難にも向き合っていけそう。 続きをみる</div>
+                    <div class="article-date">📅 Sat, 09 Jan 2021 18:12:09 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/kuranuki/n/nb6bd8a7e5ce4" target="_blank" rel="noopener">自立と孤立は違う。会社に依存しない...</a>
+                    </div>
+                    <div class="article-description">自立と孤立は違う。会社に依存しない自立した個人になることは大事だけれど、だからといって一人で生きていけというわけではない。セルフマネジメントも、自分一人で仕事できるだけでなく、周りに働きかけて成立する。自立することは、一つだけに依存しないだけで、むしろ社会との関わりが大切になる。 続きをみる</div>
+                    <div class="article-date">📅 Fri, 08 Jan 2021 18:22:45 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/kuranuki/n/n9b1d208cb038" target="_blank" rel="noopener">リーダーとマネージャーの違い</a>
+                    </div>
+                    <div class="article-description">リーダーとマネージャーの違いって、役割を定義したり仕事内容で比較したり色々と言説あるけれど、リーダーは自分のやりたいことを先導していく人で、そのためには何でもやるはずで、それは管理という意味でなく「良い感じにすること」のマネジメントをしている。リーダーは一人でもリーダーになれる。一方でマネージャーは、リーダーのように自然発生的に生まれるよりも、マネジメントすることを仕事として持つプロフェッショナルなので、誰かに任命されることでなるもの。マネージャーの仕事は管理することではなく、対象を「良い感じにすること」だから、結局はやっていることはリーダーとほぼ同じ。続きをみる</div>
+                    <div class="article-date">📅 Sun, 15 Nov 2020 16:41:20 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/kuranuki/n/n04ba585ae3ce" target="_blank" rel="noopener">心理的安全性を生み出す「問題 vs 私たち」と「提案より相談」</a>
+                    </div>
+                    <div class="article-description">いかにチームで「問題 vs 私たち」の構図をつくることが大事で、心理的安全性は結果に過ぎない。問題や成果に向き合えさえできれば、対立でなく協力になる。率直なフィードバックや意見の対立も、相手を負かすためや、自分の意見を通すためではなく、問題を解決し成果を出すことのためという共通認識をつくること。続きをみる</div>
+                    <div class="article-date">📅 Thu, 22 Oct 2020 21:37:32 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/kuranuki/n/n5133483a3751" target="_blank" rel="noopener">「ない」ことを伝える</a>
+                    </div>
+                    <div class="article-description">「納品のない受託開発」だったり、オフィスなくして全社員リモートワークとか、管理ゼロとか、何かをなくしたり、やめてしまうことで、生産性や創造性を高めてる。「ない」ことは、メディア受けするインパクトがあんまりないし、アワードなどで良さを伝えるのも難しい。ビジュアルに見せられないし、一言で伝えにくい。続きをみる</div>
+                    <div class="article-date">📅 Fri, 11 Sep 2020 23:41:36 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/kuranuki/n/n345df8d7ee2d" target="_blank" rel="noopener">祈りの本質は何か、経営者にとって祈りの意味とは</a>
+                    </div>
+                    <div class="article-description">ゆるすこと、祈ることについて。過去の許せないことに対して、祈りましょうと言われても、実は思いつかなかった。他の人の話を聞いて、そこまで引きずるほど許せないことがあるんだな、という驚きもあった。ゆるすためには、その前に怒りがあるのだと思うが、それほど怒ることがない。いや、正確に言えば、怒ることはあるけれど、それほど怒り心頭になるほどのことがないし、多少の怒りがあっても、すぐ忘れてしまう。続きをみる</div>
+                    <div class="article-date">📅 Wed, 02 Sep 2020 23:59:50 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/kuranuki/n/n3524ed4e7fdd" target="_blank" rel="noopener">経営者が身につける哲学とは何か</a>
+                    </div>
+                    <div class="article-description">サイボウズ社長の青野さんの話を聞いた。青野さんとは以前からのお付き合いがあり、メディアでの対談も何度もさせて頂いたりもした。そこで話す青野さんの話には共感ばかりで、会社を経営していく上でのスタンスが似ているように感じる。続きをみる</div>
+                    <div class="article-date">📅 Thu, 27 Aug 2020 00:17:25 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/kuranuki/n/n965ffc8b8672" target="_blank" rel="noopener">リスクマネジメントの本質</a>
+                    </div>
+                    <div class="article-description">東日本大震災の津波で児童108人のうち70人が死亡、4人が行方不明となり、教職員10人が死亡した石巻市立大川小学校。当時、大川小では、地震発生から津波到達までは51分間あり、街では津波の襲来に警戒して防災無線などでも「津波が来ます。高台へ逃げてください」という案内もあり、児童たちからも「避難をしたい。裏山へ逃げたほうがいい」という声があったものの、教員の判断で校庭にとどまっていた。50分ほどして、川に近い「三角地帯」に移動を開始し、その直後に津波に巻き込まれた。
+続きをみる</div>
+                    <div class="article-date">📅 Sun, 16 Aug 2020 21:26:45 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/kuranuki/n/n955b5e36a824" target="_blank" rel="noopener">組織を全速前進！させるビジョンのつくり方を学べる本　『ザ・ビジョン』</a>
+                    </div>
+                    <div class="article-description">組織で働く一人ひとりがエネルギッシュにワクワクと仕事に向かうことで、その組織のパフォーマンスは大きく引き出されます。そんな組織を作る上で欠かせないのが「ビジョン」であり、その作り方を記したのが本書です。
+ザ・ビジョン[新版] やる気を高め、結果を上げる「求心力」のつくり方amzn.to
+1,650円(2020年08月16日 17:24時点 詳しくはこちら)
+
+Amazon.co.jpで購入する
+
+続きをみる</div>
+                    <div class="article-date">📅 Sun, 16 Aug 2020 18:48:17 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/kuranuki/n/na683e685b4d9" target="_blank" rel="noopener">チームとコミュニティの違い、会社・組織をどう捉えるか（補足）</a>
+                    </div>
+                    <div class="article-description">私のブログ「SocialChage」で新しい記事を書きました。チーム型とコミュニティ型でOSが違うので、コミュニティのような会社に、チームとしてマネジメントしてもうまくいかないし、逆もしかり。チームかコミュニティか、わかるとマネジメントしやすくなりそうですね。続きをみる</div>
+                    <div class="article-date">📅 Wed, 12 Aug 2020 17:50:07 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/kuranuki/n/nbcce59703050" target="_blank" rel="noopener">YouTube大学にて「リモートチームでうまくいく」の解説</a>
+                    </div>
+                    <div class="article-description">中田敦彦さんのYouTube大学にて、拙著「リモートチームでうまくいく」を取り上げて頂きました。大変わかりやすく解説してもらえて、さすがでした。ありがとうございます。続きをみる</div>
+                    <div class="article-date">📅 Mon, 10 Aug 2020 11:23:14 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/kuranuki/n/n999a40205b50" target="_blank" rel="noopener">コミュニティ思考はこれからの組織経営の指針へ　『「コミュニティ」づくりの教科書』</a>
+                    </div>
+                    <div class="article-description">「これからのビジネスで重要なのはコミュニティづくりだ」という言葉を聞く機会が増えました。とはいえ、コミュニティって一体なんだろうか、どうしたら良いのか、そうした疑問に全て答えてくれるのが本書です。
+ファンをはぐくみ事業を成長させる 「コミュニティ」づくりの教科書amzn.to
+1,760円(2020年08月01日 22:27時点 詳しくはこちら)
+
+Amazon.co.jpで購入する
+
+続きをみる</div>
+                    <div class="article-date">📅 Sun, 02 Aug 2020 00:14:57 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/kuranuki/n/ndae869aa4a32" target="_blank" rel="noopener">強いチームの文化はどう作るのか『THE CULTURE CODE 最強チームをつくる方法』</a>
+                    </div>
+                    <div class="article-description">成果を出すチームを作りたいと、マネージャやリーダーなら誰もが思うことでしょう。そのために必要なのは優秀な人材と、強力なリーダーシップだと考えているかもしれません。しかし、本書の主張は違います。
+THE CULTURE CODE ―カルチャーコード― 最強チームをつくる方法amzn.to
+1,760円(2020年07月26日 23:30時点 詳しくはこちら)
+
+Amazon.co.jpで購入する
+
+続きをみる</div>
+                    <div class="article-date">📅 Mon, 27 Jul 2020 08:29:37 +0900</div>
+                </div>
+
+            </div>
+
+            <div class="site-section">
+                <div class="site-header">
+                    <span>山崎亮</span>
+                    <span class="site-count">8件</span>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/yamazakiryo/n/n8dbe9a344891" target="_blank" rel="noopener">16：『前例集』の値段。</a>
+                    </div>
+                    <div class="article-description">studio-Lが20年間に携わってきた前例から101例を選んでまとめた『前例集』は、「実用版」と「愛蔵版」の2種類をつくることになりました。「実用版」は、プロジェクトごとに購入することができて、1冊あたり1000円前後になる予定です。それぞれのプロジェクトがどう始まって、どんな手順で進められ、どんな活動が生まれたのか、どんな組織をつくったのか、ほかのどのプロジェクトと関係が深いのかなどがまとめられています。ページ数は8-16ページで、内容によって増減する予定です。人によっては公園系のプロジェクトだけを集めたいでしょうし、医療系、福祉系、観光系、計画系など、それぞれの興味によってプロジェクトを</div>
+                    <div class="article-date">📅 Thu, 01 Jan 2026 00:01:33 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/yamazakiryo/n/n2e356bb0c5f4" target="_blank" rel="noopener">15：『前例集』の参考資料。</a>
+                    </div>
+                    <div class="article-description">「まとめておいてよかった」と思う資料があります。『前例集』をつくるとき、過去にまとめた資料が活きるのです。かつて、毎日デザイン賞にノミネートされたことがあります。ベネチアビエンナーレ日本館のディレクター候補になったこともあります。結果はいずれも選ばれず。力不足で、コミュニティデザインの価値をうまく伝えられませんでした。「コミュニティデザイン」という聞き慣れない仕事について、既存のデザイン分野に携わる人たちにどうやって伝えればいいのか。そんな試行錯誤を繰り返した20年間でした。そのときにつくった資料が『前例集』をつくる際に役立っています。「この資料は、何が伝わっていて何が伝わっていないのか」。何</div>
+                    <div class="article-date">📅 Wed, 10 Dec 2025 16:08:01 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/yamazakiryo/n/n1ad5c5dbf21c" target="_blank" rel="noopener">13：愛蔵版の扉ページ。</a>
+                    </div>
+                    <div class="article-description">『前例集』の「実用版」は、プロジェクトごとに事例を詳しく説明したものです。いわば料理のレシピです。「味噌ラーメンをつくるなら」、「チキンカレーをつくるなら」といった感じで、それぞれのレシピが書かれています。読み手は自分がつくりたい料理のレシピを個別に購入していただくことになりますが、「味噌ラーメン」、「醤油ラーメン」、「塩ラーメン」、「とんこつラーメン」など、「ラーメンパック」を揃えてファイルしてもらうこともできます。ファイルの背表紙には「ラーメン」と書かれることになるでしょう。我々のプロジェクトでいえば、「公園」、「図書館」、「医療福祉」、「アート」、「行政計画」など、いくつかのファイルをつ</div>
+                    <div class="article-date">📅 Mon, 08 Dec 2025 19:56:05 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/yamazakiryo/n/n696cc5cd41fb" target="_blank" rel="noopener">飾皿</a>
+                    </div>
+                    <div class="article-description">絵画を部屋に飾ることがあります。その絵画は、山とか花とか動物といった「具体的な絵」が描かれている場合もありますし、幾何学とか模様とかアクションペインティングとかといった抽象的なものや偶然によるものなどもあります。同様に、陶芸も陶器にさまざまな模様を描きます。それも絵画のように部屋に飾ることができるのではないか。はるか昔に、そう考えた人がいるのでしょう。皿を重ねて戸棚に収納してしまうだけでなく、皿を立てて模様を見せながら収納することもできるのではないか。どうせなら大皿に絵を描いて、それを立てることで絵画のように愉しむことができるのではないか。それなら皿の縁を額縁のようにして、中央部に図像を描くの</div>
+                    <div class="article-date">📅 Mon, 10 Nov 2025 10:47:24 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/yamazakiryo/n/n8b30a5ec2859" target="_blank" rel="noopener">10：ページレイアウト。</a>
+                    </div>
+                    <div class="article-description">コミュニティデザインのプロジェクトを紹介する『前例集』は、そのページレイアウトも独自なものになりそうです。図面や模型写真などがないため、建築やランドスケープのデザインを解説するものとは違うレイアウトになります。即興性が高いため、音楽や演劇の現場を紹介する本と似たレイアウトになりそうですが、楽譜や舞台構成などが確定しているわけではないので独自の工夫が必要になりそうです。結果的には、自分たちのプロジェクトをひとつずつ思い起こしながら、必要な情報がしっかり伝えられるレイアウトになっているかどうかを確認しなければなりません。せっかく作るからには、内容がしっかり伝わるものにしたい。しかし、どうすればしっ</div>
+                    <div class="article-date">📅 Wed, 05 Nov 2025 16:21:42 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/yamazakiryo/n/n7eda9a6fb71e" target="_blank" rel="noopener">因州中井窯（鳥取県鳥取市）</a>
+                    </div>
+                    <div class="article-description">牛ノ戸焼の窯元から少し離れたところにあるのが因州中井窯。比較的新しい窯で、築窯は1945年。初代は坂本俊郎さんという方です。1930年代から牛ノ戸焼の窯元を訪れていた吉田璋也は、近くに新たな窯ができたことをよく知っていたでしょうね。坂本俊郎さんにも挨拶をしたり、指導をしたりしていたことでしょう。7年後の1952年、吉田が「牛ノ戸焼脇窯」という名前を付けて、新作民藝に取り組むよう指導したそうです。このあたりの関係がよくわからないのですが、坂本さんはありがたく名前を付けていただき、ありがたく指導されたということなのでしょうね。この素直さが、現在まで窯が続く所以なのかもしれません。「別にあなたに命名</div>
+                    <div class="article-date">📅 Sat, 25 Oct 2025 11:41:49 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/yamazakiryo/n/n229690ce71d4" target="_blank" rel="noopener">牛ノ戸焼（鳥取県鳥取市）</a>
+                    </div>
+                    <div class="article-description">鳥取県にも好きな形を生み出してくれる窯がいくつかあります。最初に思い出すのは牛ノ戸焼です。この窯元が作り出す形には、ボテッとしたかわいいものが多く、手元に置いておきたいもの、使いたいものが多く見つかります。重心が低い器と表現すればいいのでしょうか。あるいは下膨れ型というのがいいでしょうか。いずれにしても、ふっくらとした形が好きなのです。人間も、少しふっくらとした体型のほうが美しいのではないかと思います。そう思いながら、中年の腹周りになっている自分を慰めています。牛ノ戸焼は現在6代目の小林孝男さんと息子さんとのふたりで作陶しています。土を作るところから形をつくり、焼いて、販売するところまで本人た</div>
+                    <div class="article-date">📅 Fri, 24 Oct 2025 13:49:18 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/yamazakiryo/n/n2c46b94f94e5" target="_blank" rel="noopener">ぼてぼて茶碗（島根県出雲市）</a>
+                    </div>
+                    <div class="article-description">「形から入る」というのは褒められた態度ではないかもしれませんが、僕は器を選ぶ際にいつも形から入ります。見た目から入ります。それでもいいんだと勇気づけてくれたのは「見てから知れ。知ってから見るな」と言った柳宗悦です。僕はこの言葉を「見た目で判断せよ。ブランド名やデザイナー名にまどわされるな」というほどの意味だと理解しました。「見た目で判断せよ」とは、ありがたい言葉です。普段は「見た目で判断するな」と言われることが多いからです。それなのに、結局は見た目で判断してしまう自分がいる。そんなジレンマを感じている僕にとって、「見た目で判断しなさい」という教えは心地よい響きでした。ただし、この言葉は「見た目</div>
+                    <div class="article-date">📅 Sun, 12 Oct 2025 11:54:33 +0900</div>
+                </div>
+
+            </div>
+
+            <div class="site-section">
+                <div class="site-header">
+                    <span>徳力基彦</span>
+                    <span class="site-count">6件</span>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/tokuriki/n/n98712748b1d3" target="_blank" rel="noopener">映画『機動戦士ガンダム 閃光のハサウェイ キルケーの魔女』は、SZAの主題歌で米国市場でのヒットも狙う模様</a>
+                    </div>
+                    <div class="article-description">これ、ちょっとビックリしましたよね。 ガンダム『閃光のハサウェイ』新作、OPテーマはSZA「Snooze」に決定　スペシャルPV公開（シネマトゥデイ） - Yahoo!ニュース　2021年に公開された、映画『機動戦士ガンダム　閃光のハサウェイ』の最新作『機動戦士ガンダム　閃光のハサウェイ　キルケーnews.yahoo.co.jp 続きをみる</div>
+                    <div class="article-date">📅 Tue, 20 Jan 2026 06:30:00 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/tokuriki/n/ncce979c8e0b0" target="_blank" rel="noopener">Juice=Juiceの「盛れ！ミ・アモーレ」は、サブスク解禁していないのに、ファンによるコールの突然変異で爆発したらしい</a>
+                    </div>
+                    <div class="article-description">いやー、ちょっと恥ずかしながら知らなかったのでビックリしたんですが、Juice=Juiceって、まだサブスク解禁してなかったんですね。 Juice=Juice「盛れ！ミ・アモーレ」が先取りするハロプロ“サブスク解禁”の未来　スキルと多彩さに集まる注目Spotifyの「DailyViralSongs（Japan）」（1月7日付）はハロー！プロジェクト（以下、ハロプロ）発のrealsound.jp 続きをみる</div>
+                    <div class="article-date">📅 Sun, 18 Jan 2026 11:30:00 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/tokuriki/n/n538b913d1eab" target="_blank" rel="noopener">1月22日(木)は西口一希さんに、「AI時代のマーケティングでは、オウンドメディアをどう位置づけるべきか」についてお聞きします。</a>
+                    </div>
+                    <div class="article-description">来週1月22日(木)17時から、書籍『顧客起点マーケティング』や『良い売上悪い売上』の著者でもある西口一希さんをゲストにお迎えして、「AI時代のマーケティングでは、オウンドメディアをどう位置づけるべきか」をお聞きするオンラインイベントを開催しますのでご紹介。個人的にも、西口さんは15年前から本当に色んなことを教えて頂いた勝手に師匠と仰いでいる人の1人です。最も有名なのはやはり書籍『顧客起点マーケティング』でしょうか。続きをみる</div>
+                    <div class="article-date">📅 Fri, 16 Jan 2026 06:30:00 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/tokuriki/n/n9654a8bf0c52" target="_blank" rel="noopener">NHK紅白歌合戦が挑戦するテレビ視聴率復活とデジタルシフトの両立の意義</a>
+                    </div>
+                    <div class="article-description">日本最大の音楽番組と言えるNHK紅白歌合戦ですが、2025年に開催された「第76回NHK紅白歌合戦」は、第2部で平均世帯視聴率が35.2％、個人視聴率が26.4％と2024年に比べて2〜3％の上昇をしたことで大きな注目を集めています。なにしろ紅白歌合戦の視聴率と言えば、2023年、2024年と第二部の世帯視聴率で31〜32％、個人視聴率で23％台と低迷しており、毎年ワーストやワースト2位という見出しが定番化していましたので、今回の2〜3％の上昇に驚いた方は少なくないでしょう。続きをみる</div>
+                    <div class="article-date">📅 Tue, 06 Jan 2026 06:30:00 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/tokuriki/n/n5fdf52d4f13a" target="_blank" rel="noopener">1月28日(水)に「AIによるゼロクリック時代に企業がnoteで情報発信する意義」をテーマにプレゼンさせていただきます。</a>
+                    </div>
+                    <div class="article-description">1月28日(火)に開催される「SNSトレンドキャッチアップ2026」というイベントで「AIによるゼロクリック時代に企業がnoteで情報発信する意義」をテーマにプレゼンをさせていただくことになりましたので、ご紹介。このイベントは、タイトルにトレンドキャッチアップと書いてあるように「SNSマーケティングにおける2026年のトレンド予想」をテーマに、様々な専門家や企業がプレゼンするイベントになっています。続きをみる</div>
+                    <div class="article-date">📅 Mon, 05 Jan 2026 06:30:00 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://note.com/tokuriki/n/n34e2e42cef56" target="_blank" rel="noopener">なぜあのディズニーがOpenAIと提携したのか。日本が備えるべきエンタメビジネス激変の未来</a>
+                    </div>
+                    <div class="article-description">2025年もいよいよ終わろうとしていますが、2026年に向けてやはり総括しておかないといけないのがディズニーとOpenAIが提携したニュースでしょう。すでに提携のニュースが発表されてから20日が経とうとしていますが、具体的な目に言える取り組みがまだはじまっていないこともあり、そのインパクトの大きさについては把握できていないのが現状と言えるでしょう。続きをみる</div>
+                    <div class="article-date">📅 Fri, 02 Jan 2026 11:30:00 +0900</div>
+                </div>
+
+            </div>
+
+            <div class="site-section">
+                <div class="site-header">
+                    <span>日経クロステック</span>
+                    <span class="site-count">12件</span>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://xtech.nikkei.com/atcl/nxt/news/24/03052/" target="_blank" rel="noopener">デジタル庁が「Gビズポータル体験会」、公開前に意見集め開発に反映へ</a>
+                    </div>
+                    <div class="article-description">デジタル庁は2026年1月20日、事業者向け行政サービスの窓口となる「Gビズポータル」の機能を紹介するWebページを開設し、自治体職員や士業、メディア関係者らに向けてプロトタイプ体験会を開催した。</div>
+                    <div class="article-date">📅 2026-01-20T19:40:00+09:00</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://xtech.nikkei.com/atcl/nxt/mag/nc/18/011400527/011400004/" target="_blank" rel="noopener">光技術の強みを駆使　まずは「光電融合」</a>
+                    </div>
+                    <div class="article-description">NTTは2026年度にいよいよ光電融合スイッチの商用化に踏み出す。光電融合技術は競争が激化しており、ユーザーの早期獲得が鍵を握る。光技術の強みは今後、光量子コンピューターや宇宙通信にも生かしていく。</div>
+                    <div class="article-date">📅 2026-01-20T07:03:00+09:00</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://xtech.nikkei.com/atcl/nxt/mag/nc/18/011400527/011400003/" target="_blank" rel="noopener">「攻撃的MF」で輝く　AI時代の勝者目指す</a>
+                    </div>
+                    <div class="article-description">NTTデータグループの佐々木裕社長に今後の成長戦略を聞いた。今後の注力領域は「AIがもたらす新たな価値・生産性」と「次世代インフラ」。顧客はもちろん、NTTグループ内でも効率化の支援などに貢献したいと意気込む。</div>
+                    <div class="article-date">📅 2026-01-20T07:02:00+09:00</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://xtech.nikkei.com/atcl/nxt/mag/nc/18/011400527/011400002/" target="_blank" rel="noopener">データGが成長の柱　AIと光量子に期待</a>
+                    </div>
+                    <div class="article-description">NTTの島田明社長にNTTデータグループ完全子会社化の狙いを聞いた。AIや光量子、光電融合デバイスをビジネスに組み込んで成長を図っていく。NTTグループ全体にAIをどう導入していくかもデータGの大きなミッション。</div>
+                    <div class="article-date">📅 2026-01-20T07:01:00+09:00</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://xtech.nikkei.com/atcl/nxt/mag/nc/18/011400527/011400001/" target="_blank" rel="noopener">民営化40年で大勝負　ITを核に世界へ挑む</a>
+                    </div>
+                    <div class="article-description">NTTがNTTデータグループを完全子会社化し、NTTグループの中核に据えた。M＆A（合併・買収）も活用してAI分野などを強化するが、国内外の連携強化が鍵を握る。シナジー創出に向け、NTTデータグループとNTTドコモビジネスが協業の検討を進める。</div>
+                    <div class="article-date">📅 2026-01-20T07:00:00+09:00</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://xtech.nikkei.com/atcl/nxt/mag/nc/18/041700482/011400011/" target="_blank" rel="noopener">変化を楽しむ組織を創る</a>
+                    </div>
+                    <div class="article-description">アズビルは計測と制御の技術を基に、建物や工場のオートメーションなどを展開する。安田一彦執行役員は、生成AI（人工知能）の活用推進を含めたDX（デジタル変革）のかじ取りを担う。特許情報からのユースケース創出など、業務効率化にとどまらない新たな価値の創出に向けAI活用を進める。</div>
+                    <div class="article-date">📅 2026-01-20T07:00:00+09:00</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://xtech.nikkei.com/atcl/nxt/mag/nc/18/020600001/011400200/" target="_blank" rel="noopener">AI駆動で開発者とコードの距離縮める　創造的な仕事に集中できる環境を整備</a>
+                    </div>
+                    <div class="article-description">AI（人工知能）駆動開発ツールの有力株「Windsurf」を開発する。ソースコードを分析し、図や文章で可視化する機能を強化。技術者が創造的な仕事に専念できる環境づくりを目指す。</div>
+                    <div class="article-date">📅 2026-01-20T07:00:00+09:00</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://xtech.nikkei.com/atcl/nxt/column/18/03098/121500052/" target="_blank" rel="noopener">英国、重要鉱物確保へ「Vision 2035」　量子産業に与える影響</a>
+                    </div>
+                    <div class="article-description">英国政府は、2035年までの重要鉱物確保に向けた包括的な戦略を発表した。世界的な供給網の混乱から国内のハイテク産業を守りつつ、採掘や精製、リサイクルの体制を国内で強化する。</div>
+                    <div class="article-date">📅 2026-01-20T05:00:00+09:00</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://xtech.nikkei.com/atcl/nxt/column/18/03453/010900002/" target="_blank" rel="noopener">DX推進の要は変革リーダーの巻き込み力、先進企業が重視する「多能化」</a>
+                    </div>
+                    <div class="article-description">DXの成果を拡大するには、どんな能力が求められるのか。「ITイノベーターズサミット」のディスカッション「DX成功の針路 2026年への展望」で、エグゼクティブメンバー（幹事会員）が意見を交わした。</div>
+                    <div class="article-date">📅 2026-01-20T05:00:00+09:00</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://xtech.nikkei.com/atcl/nxt/column/18/03415/122300008/" target="_blank" rel="noopener">ラピダス、生成AIで半導体設計支援　26年度にツール提供</a>
+                    </div>
+                    <div class="article-description">Rapidus（ラピダス、東京・千代田）は先端半導体の設計を生成AI（人工知能）で支援するツール群を提供すると発表した。顧客となる半導体メーカーが設計期間を半減するとともに、設計コストを3割削減できるようにする。</div>
+                    <div class="article-date">📅 2026-01-20T05:00:00+09:00</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://xtech.nikkei.com/atcl/nxt/column/18/00142/02518/" target="_blank" rel="noopener">前田建設工業、AIで1級土木の演習問題3000問　学習アプリを開発</a>
+                    </div>
+                    <div class="article-description">前田建設工業が1級土木施工管理技士の資格取得を支援するアプリ「サクシェアPASS」を開発し、2026年1月からサービスの提供を開始した。AI（人工知能）を使って作成した豊富な演習問題と利用者内の順位が分かる模擬テストで、学習の継続をサポートする。担い手不足が叫ばれる建設業界で、若手の早期育成につなげる。</div>
+                    <div class="article-date">📅 2026-01-20T05:00:00+09:00</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://xtech.nikkei.com/atcl/nxt/column/18/03466/011300002/" target="_blank" rel="noopener">キモは資源効率性の向上、資源の循環利用で付加価値を生み人口増加に対応</a>
+                    </div>
+                    <div class="article-description">これまで世界の経済発展を支えていた大量生産・大量消費・大量廃棄型の線形経済（リニアエコノミー）が限界を迎えつつあります。人口増加が深刻化する中、資源枯渇や大量廃棄物、地球温暖化など様々な弊害が顕在化しているからです。</div>
+                    <div class="article-date">📅 2026-01-20T05:00:00+09:00</div>
+                </div>
+
+            </div>
+
+            <div class="site-section">
+                <div class="site-header">
+                    <span>東洋経済オンライン</span>
+                    <span class="site-count">7件</span>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://toyokeizai.net/articles/-/929550?utm_source=rss&utm_medium=http&utm_campaign=link_back" target="_blank" rel="noopener">採用下手な会社のスカウトメールが無視される訳 | ワークスタイル | 東洋経済オンライン</a>
+                    </div>
+                    <div class="article-description">「なぜ、うちの会社には人が来ないのか？」。今、日本中の経営者・人事担当者が同じ悩みを抱えています。…</div>
+                    <div class="article-date">📅 Tue, 20 Jan 2026 14:00:00 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://toyokeizai.net/articles/-/924872?utm_source=rss&utm_medium=http&utm_campaign=link_back" target="_blank" rel="noopener">｢家族関係のもつれ｣解消のために手放すべき感情 | リーダーシップ・教養・資格・スキル | 東洋経済オンライン</a>
+                    </div>
+                    <div class="article-description">夫婦のすれ違い、子育ての葛藤、そして年老いた親への割り切れない思い……。とかく人を苦しめることが多…</div>
+                    <div class="article-date">📅 Tue, 20 Jan 2026 12:00:00 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://toyokeizai.net/articles/-/928507?utm_source=rss&utm_medium=http&utm_campaign=link_back" target="_blank" rel="noopener">｢オンライン占い師｣占い以上に必須の条件 | リーダーシップ・教養・資格・スキル | 東洋経済オンライン</a>
+                    </div>
+                    <div class="article-description">近年、占いの市場規模は1兆円にのぼると言われています。この成長市場を支えているのが、新たな専門職、…</div>
+                    <div class="article-date">📅 Tue, 20 Jan 2026 11:00:00 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://toyokeizai.net/articles/-/928066?utm_source=rss&utm_medium=http&utm_campaign=link_back" target="_blank" rel="noopener">生き残る個体が｢あえてコストを払う｣納得の理由 | リーダーシップ・教養・資格・スキル | 東洋経済オンライン</a>
+                    </div>
+                    <div class="article-description">「協力」は尊い美徳だと思われがちですが、自然界の掟はもっと冷徹で合理的です。百獣の王ライオンから小…</div>
+                    <div class="article-date">📅 Tue, 20 Jan 2026 09:00:00 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://toyokeizai.net/articles/-/929746?utm_source=rss&utm_medium=http&utm_campaign=link_back" target="_blank" rel="noopener">市場規模300億円｢レストア｣という新ビジネス | トレンド | 東洋経済オンライン</a>
+                    </div>
+                    <div class="article-description">日本車メーカーも新しいビジネスを見つけたようだ。それがレストア事業。東京オートサロン2026（TAS）の…</div>
+                    <div class="article-date">📅 Tue, 20 Jan 2026 08:30:00 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://toyokeizai.net/articles/-/930071?utm_source=rss&utm_medium=http&utm_campaign=link_back" target="_blank" rel="noopener">｢失われた30年｣突入前の純利益ランキング100 | 企業ランキング | 東洋経済オンライン</a>
+                    </div>
+                    <div class="article-description">バブル崩壊後の長きにわたる停滞、いわゆる「失われた30年」に突入する以前、日本企業はどのように利益を…</div>
+                    <div class="article-date">📅 Tue, 20 Jan 2026 08:00:00 +0900</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://toyokeizai.net/articles/-/930446?utm_source=rss&utm_medium=http&utm_campaign=link_back" target="_blank" rel="noopener">高市氏が解散表明､データで読み解く株価の行方 | 市場観測 | 東洋経済オンライン</a>
+                    </div>
+                    <div class="article-description">1月19日に開かれた記者会見で、高市早苗首相は衆議院解散について正式に説明しました。そこで本記事では…</div>
+                    <div class="article-date">📅 Tue, 20 Jan 2026 05:30:00 +0900</div>
+                </div>
+
+            </div>
+
+            <div class="site-section">
+                <div class="site-header">
+                    <span>現代ビジネス</span>
+                    <span class="site-count">2件</span>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://gendai.media/articles/-/162914" target="_blank" rel="noopener">にしおかすみこ、お風呂嫌いなダウン症の姉とビジネスホテルの大浴場に行く</a>
+                    </div>
+                    <div class="article-description">大浴場のあるホテルに、お風呂嫌いな人と一緒に行ったら、あなたはどうするだろう。しかもそれが、幼かったり、高齢だったり、何かの理由で「一人では部屋に置いておけない」人だったら……。認知症の母、ダウン症の姉、酔っ払いの父との2020年からの暮らしを、2021年9月から連載してきたにしおかすみこさん。2025年11月中旬、84歳で母親が突然天国に旅立った。これまで1年前のことをつづってきたが、連載53回の今回は1年前のできごとから今のことも伝えている。前編では、12月がお誕生日のお母さんとの思い出から話はスタートし、ビジネスホテルに泊まったときのエピソードも伝えた。お姉さんが大きなベッドに喜んでいた</div>
+                    <div class="article-date">📅 Mon, 19 Jan 2026 22:00:00 +0000</div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-title">
+                        <a href="https://gendai.media/articles/-/162902" target="_blank" rel="noopener">【3コマ漫画『課長のヤギさん』】少しくらいは雑談したい…部下とコミュニケーションを取りたくて休日の予定を聞いてみた後に待っているジェネレーションギャップ</a>
+                    </div>
+                    <div class="article-description">漫画『課長のヤギさん』は、ジョンソンともゆき氏が描く中間管理職の苦悩を描いた作品で、毎週月曜に新作が更新される。ヤギさんは「とある会社」の課長として、若手社員とのコミュニケーションに悩みながらも頑張り続ける姿を描写している。</div>
+                    <div class="article-date">📅 Mon, 19 Jan 2026 22:00:00 +0000</div>
+                </div>
+
+            </div>
+
+        </div>
+        
+        <footer>
+            <p>このページは自動生成されました</p>
+            <p>再実行すると最新の記事に更新されます</p>
+        </footer>
+    </div>
+</body>
+</html>
